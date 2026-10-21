@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+*.zip
+package/TrayPatcher.exe
+package/TrayPatcher.exe.config
+package/Mono.Cecil*.dll
+package/README.md
+package/LICENSE
+/TrayTest.exe

@@ -28,7 +28,8 @@ jobs:
       - name: Compile local runtime test harness
         shell: pwsh
         run: |
-          & "$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe" /nologo /out:TrayTest.exe /r:System.Windows.Forms.dll /r:System.Drawing.dll tests/TrayTest.cs
+          $testSource = (Resolve-Path -LiteralPath 'tests\TrayTest.cs').ProviderPath
+          & "$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe" /nologo /out:TrayTest.exe /r:System.Windows.Forms.dll /r:System.Drawing.dll $testSource
           if ($LASTEXITCODE -ne 0) { throw 'Test harness compilation failed' }
       - uses: actions/upload-artifact@v4
         with:
